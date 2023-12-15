@@ -118,6 +118,14 @@ function _is_admin(){
 }
 
 // ##############################
+function _is_partner() {
+  if (!isset($_SESSION['user'])) {
+      return false;
+  }
+  return $_SESSION['user']['user_role_name'] = 'partner';
+}
+
+// ##############################
 function out($text){
   echo htmlspecialchars($text);
 }

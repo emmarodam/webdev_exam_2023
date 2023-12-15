@@ -79,6 +79,12 @@ $user = $q->fetch();
   $q->bindValue(':user_id', $_GET['user_id']);
   $q->execute();
   $orders = $q->fetchAll();
+
+  if(_is_partner()){
+    echo "<script>alert('Your message here');</script>"; 
+    exit();
+  }
+
   ?>
 
   <div class="w-3/4 h-screen p-4 ml-48" id="orders">

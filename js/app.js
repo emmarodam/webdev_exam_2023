@@ -154,20 +154,20 @@ async function search_orders(){
     body : new FormData(frm)
   })
 
-  const data = await conn.json()
-  document.querySelector("#query_results").innerHTML = ""
+  // const data = await conn.json()
+  // document.querySelector("#query_results").innerHTML = ""
   
-  data.forEach(order => {
-    let div_user = `
-      <div class="grid grid-cols-[100fr,100fr,50fr] p-2">
-        <div class="">${order.order_id}</div>
-        <div class="">${order.order_created_by_user_fk}</div>
-        <div class="">${order.order_created_at}</div>
-        <div class="">${order.order_delivered_at}</div>
-      </div>
-    `
-    document.querySelector("#query_results").insertAdjacentHTML('afterbegin', div_order)
-  })
+  // data.forEach(order => {
+  //   let div_user = `
+  //     <div class="grid grid-cols-[100fr,100fr,50fr] p-2">
+  //       <div class="">${order.order_id}</div>
+  //       <div class="">${order.order_created_by_user_fk}</div>
+  //       <div class="">${order.order_created_at}</div>
+  //       <div class="">${order.order_delivered_at}</div>
+  //     </div>
+  //   `
+  //   document.querySelector("#query_results").insertAdjacentHTML('afterbegin', div_order)
+  // })
 }
 
 
