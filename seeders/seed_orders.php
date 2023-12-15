@@ -24,8 +24,8 @@ try{
 
   $q = $db->prepare('
   CREATE TABLE orders(
-      order_id                      VARCHAR(36),
-      order_created_by_user_fk      VARCHAR(36),
+      order_id                      VARCHAR(255),
+      order_created_by_user_fk      VARCHAR(255),
       order_created_at              INT,
       order_updated_at              INT,
       order_deleted_at              INT,
@@ -37,7 +37,7 @@ $q->execute();
   
   $values = '';
   for($i = 0; $i < 100; $i++){
-    $order_id = bin2hex(random_bytes(16));
+    $order_id = bin2hex(random_bytes(5));
     $order_created_by_user_fk = $users_ids[array_rand($users_ids)];
     $order_created_at = time();
     $order_updated_at = 0;

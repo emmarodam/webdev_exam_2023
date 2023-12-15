@@ -25,11 +25,11 @@ try{
 
   $q = $db->prepare('
   CREATE TABLE orders_items(
-      orders_items_id             VARCHAR(36),
-      orders_items_order_fk       VARCHAR(36),
-      orders_items_item_fk        VARCHAR(36),
-      orders_items_item_price     TEXT,
-      orders_items_item_quantity  TEXT,
+      orders_items_id             VARCHAR(255),
+      orders_items_order_fk       VARCHAR(255),
+      orders_items_item_fk        VARCHAR(255),
+      orders_items_item_price     INT,
+      orders_items_item_quantity  INT,
       orders_items_created_at     INT,
       orders_items_updated_at     INT,
       orders_items_deleted_at     INT,
@@ -41,7 +41,7 @@ $q->execute();
   $orders_items = [];
   $values = '';
   for($i = 0; $i < 100; $i++){
-    $orders_items_id = bin2hex(random_bytes(16));
+    $orders_items_id = bin2hex(random_bytes(5));
     $orders_items_order_fk = $orders_ids[array_rand($orders_ids)];
     $orders_items_item_fk = $items[array_rand($items)][0];
     // Same order with same item cannot repeat

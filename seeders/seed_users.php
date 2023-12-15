@@ -16,13 +16,13 @@ try{
 
   $q = $db->prepare('
   CREATE TABLE users(
-      user_id           VARCHAR(36),
-      user_name         TEXT,
-      user_last_name    TEXT,
+      user_id           VARCHAR(255),
+      user_name         VARCHAR(20),
+      user_last_name    VARCHAR(20),
       user_email        VARCHAR(255) UNIQUE,
       user_password     TEXT,
-      user_address      TEXT,
-      user_role_name    TEXT,
+      user_address      VARCHAR(255),
+      user_role_name    VARCHAR(20),
       user_created_at   INT,
       user_updated_at   INT,
       user_deleted_at   INT,
@@ -46,7 +46,7 @@ $q->execute();
   // Password
   $user_password = password_hash('password', PASSWORD_DEFAULT);
   for($i = 0; $i < 100; $i++){
-    $user_id = bin2hex(random_bytes(16));
+    $user_id = bin2hex(random_bytes(5));
     $user_name = str_replace("'", "''", $faker->firstName);
     $user_last_name = str_replace("'", "''", $faker->lastName);
     $user_email = $faker->unique->email;

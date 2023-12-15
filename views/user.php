@@ -36,8 +36,8 @@ if (!$user) {
     </form>
   </div>
 
-  <div class="w-3/4 h-screen absolute top-0 right-0 p-4" id="display-info">
-    <h1 class="font-spartan text-4xl px-8 py-20">User</h1>
+  <div class="w-3/4 h-screen absolute top-0 right-0 p-8" id="display-info">
+    <h1 class="font-spartan text-4xlpy-20">User</h1>
     ID: <?= $_GET['user_id'] ?>
     Name: <?= $user['user_name'] ?>
   </div>

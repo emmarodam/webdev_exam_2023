@@ -18,13 +18,13 @@ try{
 
   $q = $db->prepare('
   CREATE TABLE items(
-      item_id                   VARCHAR(36),
-      item_name                 TEXT,
-      item_price                TEXT,
+      item_id                   VARCHAR(255),
+      item_name                 VARCHAR(255),
+      item_price                INT,
       item_created_at           INT,
       item_updated_at           INT,
       item_deleted_at           INT,
-      item_created_by_user_fk   VARCHAR(36),
+      item_created_by_user_fk   VARCHAR(255),
       PRIMARY KEY (item_id)
   )
 ');
@@ -32,7 +32,7 @@ $q->execute();
 
   $values = '';
   for($i = 0; $i < 100; $i++){
-    $item_id = bin2hex(random_bytes(16));
+    $item_id = bin2hex(random_bytes(5));
     $item_name = str_replace("'", "''", $faker->unique->word);
     $item_price = rand(1000, 99999);
     $item_created_at = time();

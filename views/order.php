@@ -31,15 +31,8 @@ if (!$order) {
     </form>
   </div>
 
-  <div class="py-4">
-    <form onsubmit="return false" class="flex w-1/4 gap-4 absolute right-0 [&_input]:h-10 [&_input]:rounded-3xl [&_input]:outline-none [&_input]:text-gray-900 [&_input]:px-4">
-      <input name="user_search" class="w-3/4 h-8 dark:bg-zinc-200  outline-none" type="text" placeholder=" Search">
-      <button class="w-1/8 text-xl">🔍</button>
-    </form>
-  </div>
-
-  <div class="w-3/4 h-screen absolute top-0 right-0 p-4" id="display-info">
-    <h1 class="font-spartan text-4xl px-8 py-20">Order</h1>
+  <div class="w-3/4 h-screen absolute top-0 right-0 p-8" id="display-info">
+    <h1 class="font-spartan text-4xl py-20">Order</h1>
     ID: <?= $_GET['order_id'] ?>
     Created by: <?= $order['order_created_by_user_fk'] ?>
   </div>

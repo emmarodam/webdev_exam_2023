@@ -10,8 +10,8 @@ try {
 
     $q = $db->prepare('
         CREATE TABLE roles(
-            role_id           VARCHAR(36),
-            role_name         TEXT,
+            role_id           VARCHAR(255),
+            role_name         VARCHAR(20),
             role_created_at   INT,
             role_updated_at   INT,
             PRIMARY KEY (role_id)
