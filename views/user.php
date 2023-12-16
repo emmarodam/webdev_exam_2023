@@ -37,9 +37,19 @@ if (!$user) {
   </div>
 
   <div class="w-3/4 h-screen absolute top-0 right-0 p-8" id="display-info">
-    <h1 class="font-spartan text-4xlpy-20">User</h1>
-    ID: <?= $_GET['user_id'] ?>
-    Name: <?= $user['user_name'] ?>
+    <h1 class="font-spartan text-4xl py-20">User</h1>
+    <ul>
+      <li>ID: <?= $_GET['user_id'] ?></li>
+      <li>Name: <?= $user['user_name'] ?></li>
+      <li>Last name: <?= $user['user_last_name'] ?></li>
+      <li>Email: <?= $user['user_email'] ?></li>
+      <li>Address: <?= $user['user_address'] ?></li>
+      <li>Role: <?= $user['user_role_name'] ?></li>
+      <li>Created at: <?= $user['user_created_at'] ?></li>
+      <li>Updated at: <?= $user['user_updated_at'] ?></li>
+      <li>Deleted at: <?= $user['user_deleted_at'] ?></li>
+      <li>Status: <?= $user['user_is_blocked'] ?></li>
+    </ul>
   </div>
 
 </main>

@@ -10,3 +10,9 @@ WHERE orders.order_id = '0c70b13a87';
 SELECT * FROM orders 
 WHERE order_id LIKE '01c9513d84' 
 AND order_created_by_user_fk LIKE '7a8b409642';
+
+CREATE TABLE customers 
+SELECT * FROM users WHERE user_role_name = 'customer';
+
+CREATE TABLE partner
+SELECT * FROM users WHERE user_role_name = 'partner';

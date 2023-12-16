@@ -111,12 +111,6 @@ function _validate_user_confirm_password(){
   }
 }
 
-
-// ##############################
-function _is_admin(){
-  return (! isset($_SESSION['user']) || $_SESSION['user']['user_role_name'] != 'admin') ? false : true;
-}
-
 // ##############################
 function _is_partner() {
   if (!isset($_SESSION['user'])) {

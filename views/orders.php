@@ -41,10 +41,10 @@ $orders = $sql->fetchAll();
       <?php foreach ($orders as $order) : ?>
         <div class="flex w-full pt-4">
           <div class="w-2/3"><?= $order['order_id'] ?></div>
-          <div class="w-2/3"><?= $order['order_created_by_user_fk'] ?></div>
+          <div class="w-2/3"><?= $order['order_created_by'] ?></div>
           <div class="w-1/3"><?= $order['order_created_at'] ?></div>
 
-          <a href="/order?order_id=<?= $order['order_id'] ?>" class="w-1/3">
+          <a href="/order-admin?order_id=<?= $order['order_id'] ?>" class="w-1/3">
             👁️
           </a>
 

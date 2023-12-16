@@ -10,6 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($user['user_role_name'] === 'admin') {
             header('Location: /users');
             exit();
+        } else if ($user['user_role_name'] === 'partner') {
+            header("Location: /user-profile-partner?user_id={$user['user_id']}");
+            exit();
         }
         header("Location: /user-profile?user_id={$user['user_id']}");
     } catch (Exception $e) {

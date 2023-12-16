@@ -6,6 +6,7 @@ $db = _db();
 $q = $db->prepare('SELECT * FROM users');
 $q->execute();
 $users = $q->fetchAll();
+
 ?>
 
 <main class="w-full px-4 md:px-12 lg:px-44">
