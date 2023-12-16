@@ -145,6 +145,12 @@ async function search_users(){
 }
 
 // ##############################
+function go_back() {
+  window.history.back();
+}
+
+
+// ##############################
 async function search_orders(){
   const frm = document.querySelector("#frm_search")
   const url = frm.getAttribute('data-url')

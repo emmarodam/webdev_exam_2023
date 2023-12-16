@@ -853,11 +853,6 @@ video {
   padding-bottom: 2rem;
 }
 
-.px-12 {
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
 .pt-20 {
   padding-top: 5rem;
 }
@@ -968,6 +963,18 @@ video {
   .dark\:bg-zinc-200 {
     --tw-bg-opacity: 1;
     background-color: rgb(228 228 231 / var(--tw-bg-opacity));
+  }
+}
+
+@media (min-width: 640px) {
+  .sm\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .sm\:text-8xl {
+    font-size: 6rem;
+    line-height: 1;
   }
 }
 

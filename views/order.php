@@ -24,16 +24,8 @@ $order_items_order_fk = $q->fetch();
 
 ?>
 
-<main class="w-full px-4 md:px-12 lg:px-44">
-  <div class="bg-gray-900 text-gray-50 h-screen w-1/4 fixed top-0 left-0 pt-36" id="left-nav">
-    <li class="m-12 mt-16 list-none font-spartan flex flex-col gap-6 text-xl">
-      <a href="#profile" class="hover:text-red-700"> > profile</a>
-      <a href="#orders" class="hover:text-red-700"> > orders</a>
-    </li>
-    <form action="logout" method="POST">
-      <button class="bg-red-700 text-gray-50 rounded-3xl py-2 my-4 w-1/4 m-12 font-spartan absolute bottom-0">Logout</button>
-    </form>
-  </div>
+<main class="w-full px-4">
+  <div class="bg-gray-900 text-gray-50 h-screen w-1/4 fixed top-0 left-0 pt-36" id="left-nav"></div>
 
   <div class="w-3/4 h-screen absolute top-0 right-0 p-8" id="display-info">
     <h1 class="font-spartan text-4xl py-20">Order</h1>
@@ -42,6 +34,8 @@ $order_items_order_fk = $q->fetch();
       <li>Created by: <?= $order['order_created_by'] ?></li>
       <li>Items: <?= $order_items_order_fk['orders_items_order_fk'] ?></li>
     </ul>
+    <button class="bg-red-700 text-gray-50 rounded-3xl py-2 px-4 my-4 m-auto block font-spartan" onclick="go_back()">< Go back</button>
+
   </div>
 
 </main>
