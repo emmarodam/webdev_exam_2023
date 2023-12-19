@@ -52,14 +52,14 @@ $user = $q->fetch();
       <label for="user_password" class="flex">
         <span>Password</span>
       </label>
-      <input id="user_password" name="user_password" type="text" data-validate="str" data-min="<?= USER_PASSWORD_MIN ?>" data-max="<?= USER_PASSWORD_MAX ?>" class="" value="<?= $user['user_password'] ?>">
+      <input id="user_password" name="user_password" type="text" data-validate="str" data-min="<?= USER_PASSWORD_MIN ?>" data-max="<?= USER_PASSWORD_MAX ?>" class="" value="">
     </div>
 
     <div class="grid">
       <label for="user_confirm_password" class="flex">
         <span>Confirm password</span>
       </label>
-      <input id="user_confirm_password" name="user_confirm_password" type="text" data-validate="match" data-match-name="user_password" class="" value="<?= $user['user_password'] ?>">
+      <input id="user_confirm_password" name="user_confirm_password" type="text" data-validate="match" data-match-name="user_password" class="" value="">
     </div>
     
     <button class="bg-red-700 text-gray-50 rounded-3xl py-2 my-4 w-2/3 m-auto block font-spartan">Update</button>

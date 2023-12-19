@@ -34,7 +34,7 @@ require_once __DIR__ . '/_header.php';
 
     <div class="grid">
       <label for="user_role_name" class="flex">
-        <span class="">Partner or costumer?</span>
+        <span class="">Partner or customer?</span>
         <span class="ml-auto"><?= USER_LAST_NAME_MIN ?> to <?= USER_LAST_NAME_MAX ?> characters</span>
 
       </label>
