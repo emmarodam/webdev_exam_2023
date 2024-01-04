@@ -33,15 +33,6 @@ require_once __DIR__ . '/_header.php';
     </div>
 
     <div class="grid">
-      <label for="user_role_name" class="flex">
-        <span class="">Partner or customer?</span>
-        <span class="ml-auto"><?= USER_LAST_NAME_MIN ?> to <?= USER_LAST_NAME_MAX ?> characters</span>
-
-      </label>
-      <input id="user_role_name" name="user_role_name" type="text" data-validate="str" data-min="<?= USER_LAST_NAME_MIN ?>" data-max="<?= USER_LAST_NAME_MAX ?>" class="">
-    </div>
-
-    <div class="grid">
       <label for="user_email">
         <span class="">Email</span>
       </label>
@@ -65,6 +56,17 @@ require_once __DIR__ . '/_header.php';
         <span class="ml-auto"><?= USER_PASSWORD_MIN ?> to <?= USER_PASSWORD_MAX ?> characters</span>
       </label>
       <input id="user_confirm_password" name="user_confirm_password" type="text" data-validate="match" data-match-name="user_password" class="">
+    </div>
+
+    <div class="grid">
+      <label for="partner_radio" class="flex items-center">
+        <input id="partner_radio" name="user_role_name" type="radio" value="partner" class="h-5 w-5 text-red-700">
+        <span class="px-4">Partner</span>
+      </label>
+      <label for="customer_radio" class="flex items-center">
+        <input id="customer_radio" name="user_role_name" type="radio" value="customer" class="h-5 w-5 text-red-700">
+        <span class="px-4">Customer</span>
+      </label>
     </div>
 
     <button class="bg-red-700 text-gray-50 rounded-3xl py-2 px-8 my-4">Signup</button>

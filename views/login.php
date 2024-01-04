@@ -1,42 +1,53 @@
 <?php
-require_once __DIR__.'/_header.php';
-require_once __DIR__.'/../_.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    try {
-        session_start();
-        $user = login();
-        $_SESSION['user'] = $user;
-        if ($user['user_role_name'] === 'admin') {
-            header('Location: /users');
-            exit();
-        } else if ($user['user_role_name'] === 'partner') {
-            header("Location: /user-profile-partner?user_id={$user['user_id']}");
-            exit();
-        }
-        header("Location: /user-profile?user_id={$user['user_id']}");
-    } catch (Exception $e) {
-        echo 'Login failed: ' . $e->getMessage();
-    }
-}
 
 function login() {
     require_once __DIR__.'/../_.php';
     _validate_user_email();
     _validate_user_password();
-
+    
     $db = _db();
     $q = $db->prepare('SELECT * FROM users WHERE user_email = :user_email');
     $q->bindValue(':user_email', $_POST['user_email']);
     $q->execute();
     $user = $q->fetch();
-
+    
     if (!$user || !password_verify($_POST['user_password'], $user['user_password'])) {
-        throw new Exception('Invalid credentials');
+        throw new Exception('Invalid email or password');
     }
-
+    
     unset($user['user_password']);
     return $user;
+}
+require_once __DIR__.'/_header.php';
+require_once __DIR__.'/../_.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    try {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $user = login();
+
+        if ($user['user_role_name'] === 'admin') {
+            $_SESSION['user'] = [
+                'user_id' => $user['user_id'],
+                'user_name' => $user['user_name'],
+                'user_email' => $user['user_email'],
+                'user_role_name' => $user['user_role_name']
+            ];
+            header('Location: /users');
+            exit();
+        } else if ($user['user_role_name'] === 'partner') {
+            header("Location: /user-profile-partner?user_id={$user['user_id']}");
+            exit();
+        } else {
+            header("Location: /user-profile?user_id={$user['user_id']}");
+            exit();
+        }
+    } catch (Exception $e) {
+        echo 'Login failed: ' . $e->getMessage();
+    }
 }
 ?>
 

@@ -2,6 +2,16 @@
 require_once __DIR__ . '/_header.php';
 require_once __DIR__ . '/../_.php';
 
+session_start();
+
+// check if user is the admin || means 'or' so this sentence mean if not session user or if session user is not admin, then relocate to error-page
+if (!isset($_SESSION['user']) || $_SESSION['user']['user_role_name'] !== 'admin') {
+  header('Location: /error');
+  exit();
+}
+
+$user_id = $_SESSION['user']['user_id'];
+
 $db = _db();
 $q = $db->prepare('SELECT * FROM users');
 $q->execute();
@@ -26,7 +36,7 @@ $users = $q->fetchAll();
     <div class="py-12">
       <?php
       $frm_search_url = 'api-search-users.php';
-      include_once __DIR__.'/_form-search.php';
+      include_once __DIR__ . '/_form-search.php';
       ?>
     </div>
 
@@ -49,6 +59,7 @@ $users = $q->fetchAll();
         </a>
 
         <button class="w-1/12" data-user-id="<?= $user['user_id'] ?>" data-user-is-blocked="<?= $user['user_is_blocked'] ?>" onclick="toggle_blocked('<?= $user['user_id'] ?>', <?= $user['user_is_blocked'] ?>)">
+          <!-- If user_is_blocked is 0 (true) it turns green, if it's not (false) it turns red -->
           <?= $user['user_is_blocked'] == 0 ? "🟢" : "🔴" ?>
         </button>
 

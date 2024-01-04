@@ -2,6 +2,16 @@
 require_once __DIR__ . '/_header.php';
 require_once __DIR__ . '/../_.php';
 
+session_start();
+
+// check if user is the admin
+if (!isset($_SESSION['user']) || $_SESSION['user']['user_role_name'] !== 'admin') {
+  header('Location: /error');
+  exit();
+}
+
+$user_id = $_SESSION['user']['user_id'];
+
 $db = _db();
 $sql = $db->prepare('SELECT * FROM orders');
 $sql->execute();

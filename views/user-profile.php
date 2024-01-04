@@ -56,9 +56,7 @@ $user = $q->fetch();
       <li>
         <h3 class="font-spartan text-xl pt-4">Password</h3>
       </li>
-      <li>
-        <p><?= $user['user_password'] ?></p>
-      </li>
+ 
     </ul>
 
     <div class="py-8 flex flex-row w-full">
